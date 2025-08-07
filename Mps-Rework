@@ -43,7 +43,7 @@ pcall(__FakeHeartbeat__)
 -- Begin
 local __keys = {
     ["mps_mission"] = function()
-        loadstring(game:HttpGet("https://yourdomain.com/script1.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/akramthegoat/Loader/refs/heads/main/MPS-Rework"))()
     end
 }
 
