@@ -1,94 +1,13 @@
--- Start obfuscation
-local ___ANTI_TRACE = {}
-for i = 1, 10 do
-    ___ANTI_TRACE["__" .. tostring(math.random(1000, 9999))] = math.random() * math.random(10000, 99999)
-end
-
-local function __AntiSniff__()
-    local ghost = {}
-    for _ = 1, 5 do
-        local rnd = tostring(tick() * math.random(1, 100))
-        table.insert(ghost, "SIG_" .. rnd)
-    end
-    return ghost
-end
-
-local function __ShadowEncrypt__(input)
-    local bogus = {}
-    for i = 1, #input do
-        table.insert(bogus, string.char(string.byte(input:sub(i, i)) ~ 42))
-    end
-    return table.concat(bogus)
-end
-
-local __trapdoor = {
-    decoy = true,
-    version = 0.91,
-    validate = function(k)
-        return tostring(k):reverse() ~= "key_is_fake"
-    end,
-    signals = __AntiSniff__(),
-    data = __ShadowEncrypt__("not_a_real_key_123")
-}
-
-local function __FakeHeartbeat__()
-    for i = 1, 3 do
-        local v = math.sqrt(math.random(100000))
-        if v < 0 then error("unexpected neg val") end
-    end
-end
-
-pcall(__FakeHeartbeat__)
-
--- Begin
-local __keys = {
-    ["mps_mission"] = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/akramthegoat/Loader/refs/heads/main/MPS-Rework"))()
-    end
-}
-
--- Load DrRay UI
-local __lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
-local __win = __lib:Load("🔐 Secure Access Terminal", "DarkTheme")
-local __tab = __lib.newTab("Key Verification", "DarkTheme")
-
--- Input + state
-local __keyEntered = ""
-__tab.newTextbox("Input Access Key", "Enter correct access code", function(k)
-    __keyEntered = k
+local a=loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
+local b=a:Load("🗝️","DarkTheme")
+local c=a.newTab("🔑","DarkTheme")
+local d,c1="mps_mission",""
+local function e()loadstring(game:HttpGet("https://raw.githubusercontent.com/akramthegoat/Loader/refs/heads/main/MPS-Rework"))()end
+c.newInput("K","",function(f)c1=f end)
+c.newButton("G","",function()
+    (c1==d and function()c.newLabel("✔")e()end or function()c.newLabel("✖")end)()
 end)
-
--- Check key + execute
-__tab.newButton("Unlock Access", "Validate entered key", function()
-    if __keys[__keyEntered] then
-        __tab.newLabel("Access Granted.")
-        __keys[__keyEntered]()
-    else
-        __tab.newLabel("Invalid Key Provided.")
-        __trapdoor.validate("key_is_fake")
-    end
+c.newButton("Copy Discord Link","Key Is Inside Discord",function()
+    (setclipboard and function()c.newLabel("✔")setclipboard("https://discord.gg/EjUEECeGmB")end or function()c.newLabel("✖")end)()
 end)
-
--- End analysis
-local function __GarbageLayer__(a)
-    local junkTable = {}
-    for i = 1, 15 do
-        table.insert(junkTable, math.sin(i * a + math.random()))
-    end
-    return junkTable
-end
-
-local function __UselessExecutor__()
-    local result = 0
-    for i = 1, 10 do
-        result = result + (i ^ 2) - (i / 2) + math.random()
-    end
-    return tostring(result):sub(1, 5)
-end
-
-for i = 1, 2 do
-    pcall(function()
-        __GarbageLayer__(math.random())
-        __UselessExecutor__()
-    end)
-end
+if setclipboard then setclipboard("https://discord.gg/EjUEECeGmB") end
