@@ -1,4 +1,4 @@
-K a=loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
+local a=loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local b=a:Load("🗝️","DarkTheme")
 local c=a.newTab("🔑","DarkTheme")
 local d,c1="mps_mission",""
