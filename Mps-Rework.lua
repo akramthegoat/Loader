@@ -3,7 +3,7 @@ local b=a:Load("🗝️","DarkTheme")
 local c=a.newTab("🔑","DarkTheme")
 local d,c1="mps_mission",""
 local function e()loadstring(game:HttpGet("https://raw.githubusercontent.com/akramthegoat/Loader/refs/heads/main/MPS-Rework"))()end
-c.newInput("Insert Key,"",function(f)c1=f end)
+c.newInput("Insert Your Key","",function(f)c1=f end)
 c.newButton("Enter","",function()
     (c1==d and function()c.newLabel("✔")e()end or function()c.newLabel("✖")end)()
 end)
