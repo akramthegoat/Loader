@@ -1,8 +1,8 @@
-local a=loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
+MPS-Rework a=loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local b=a:Load("🗝️","DarkTheme")
 local c=a.newTab("🔑","DarkTheme")
 local d,c1="mps_mission",""
-local function e()loadstring(game:HttpGet("https://raw.githubusercontent.com/akramthegoat/Loader/refs/heads/main/MPS-Rework"))()end
+local function e()loadstring(game:HttpGet("https://raw.githubusercontent.com/akramthegoat/Loader/refs/heads/main/Akram-MPS-Rework"))()end
 c.newInput("Insert Your Key","",function(f)c1=f end)
 c.newButton("Enter","",function()
     (c1==d and function()c.newLabel("✔")e()end or function()c.newLabel("✖")end)()
